@@ -1,0 +1,51 @@
+<p>header works!</p>
+
+Hello {{fname+' '+lname}} good evening..
+<br>
+
+<div> Name = srini</div>
+<div> Name = Sam</div>
+<div> Name = Arun</div>
+<br>
+
+<div *ngFor="let val of sampleArr">
+    <span *ngIf="(val.design == 'PHP')">Name = {{val.name}}</span>
+</div>
+
+<br>
+<hr>
+
+<ul *ngFor="let person of people" [ngSwitch]="person.country">
+
+    <li *ngSwitchCase="'UK'">UK -> {{ person.name }} ({{ person.country }})
+    </li>
+    <li *ngSwitchCase="'USA'" [ngStyle]="{'background-color':'green'}">USA -> {{ person.name }} ({{ person.country }})
+    </li>
+    <li *ngSwitchCase="'HK'">HK ->{{ person.name }} ({{ person.country }})
+    </li>
+    <li *ngSwitchDefault>{{ person.name }} ({{ person.country }})
+    </li>
+</ul>
+
+<br>
+<hr>
+
+<div *ngFor="let val of people">
+    <span [ngStyle]="{'background-color':(val.country === 'UK') ? 'green' : 'red' }">{{val.name | lowercase }}</span>
+</div>
+
+
+<br>
+<hr>
+
+<div *ngFor="let val of people">
+    <span [ngClass]="checkCls(val)">{{val.name}}</span>
+</div>
+
+<br>
+<hr>
+<div ngNonBindable>{{(1
+    < 2) ? '1 is graeter' : '2 is greater'}}</div>
+
+        <br>
+        <hr> {{people | json}}
