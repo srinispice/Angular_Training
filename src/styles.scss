@@ -11,15 +11,17 @@
     border: 1px solid grey;
     background-color: aqua;
     padding: 20px;
+    display: flex;
+    flex-direction: column;
 }
 
 .mainBtnHolderCls {
-    position: relative;
-    float: right;
+    display: flex;
+    height: 75px;
 }
 
 .todoBtnCls {
-    background-color: #008CBA;
+    background-color: #008cba;
     border: none;
     color: white;
     padding: 15px 32px;
@@ -27,4 +29,44 @@
     font-size: 16px;
     margin: 10px;
     cursor: pointer;
+}
+
+.todoTaskHolderCls {
+    display: flex;
+    flex: 1;
+    height: 30px;
+}
+
+.mainTodoListHolderCls {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    height: 80px;
+}
+
+.mainTodotHolderCls {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    height: 80px;
+    border: 1px solid blue;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+.taskBtnHolderCls {
+    width: 255px;
+}
+
+.checkBoxLabelHolderCls {
+    display: flex;
+    flex: 1;
+    display: flex;
+    flex: 1;
+    justify-content: start;
+    align-items: center;
+}
+
+.checkboxCls {
+    margin: 20px;
 }
