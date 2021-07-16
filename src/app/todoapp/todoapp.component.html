@@ -1,7 +1,7 @@
 <div class="todoMainHolderCls">
 
     <div class="mainBtnHolderCls">
-        <button class="todoBtnCls">Add</button>
+        <button (click)="showhideAddHolder()" class="todoBtnCls">Add</button>
         <button class="todoBtnCls">Delete</button>
     </div>
 
@@ -55,5 +55,25 @@
 
     </div>
 
+</div>
+
+<div *ngIf="showAddHolder" class="todoAddHolderCls">
+
+    <div class="txtBoxHolderCls" style="background-color: red;">
+        <div class="addTodoLableCls">Name</div>
+        <div><input type="textbox" [(ngModel)]="addtaskArr.name" value="{{addtaskArr.name}}" /></div>
+    </div>
+    <div class="txtBoxHolderCls" style="background-color: yellow;">
+        <div class="addTodoLableCls">Description</div>
+        <div><input type="textbox" value="{{addtaskArr.desc}}" /></div>
+    </div>
+    <div class="txtBoxHolderCls" style="background-color: green;">
+        <div class="addTodoLableCls">Date</div>
+        <div><input type="textbox" value="{{addtaskArr.date}}" /></div>
+    </div>
+    <div class="txtBoxHolderCls" style="background-color: blue;justify-content: flex-end;">
+        <button class="todoBtnCls">Add</button>
+        <button class="todoBtnCls">Cancel</button>
+    </div>
 
 </div>

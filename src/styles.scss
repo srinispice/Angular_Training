@@ -60,7 +60,7 @@
 
 .checkBoxLabelHolderCls {
     display: flex;
-    flex: 1;
+    // flex: 1;
     display: flex;
     flex: 1;
     justify-content: start;
@@ -69,4 +69,25 @@
 
 .checkboxCls {
     margin: 20px;
+}
+
+.todoAddHolderCls {
+    display: flex;
+    padding: 20px;
+    background-color: orange;
+    flex-direction: column;
+    height: 300px;
+}
+
+.txtBoxHolderCls {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 20px;
+}
+
+.addTodoLableCls {
+    margin-right: 20px;
+    width: 150px;
 }
