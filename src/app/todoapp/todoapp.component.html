@@ -5,75 +5,48 @@
         <button class="todoBtnCls">Delete</button>
     </div>
 
-    <div class="mainTodoListHolderCls">
+    <div *ngIf="(todoTaskArr.length == 0)">
+        No task added
+    </div>
 
-        <div class="mainTodotHolderCls">
+    <div *ngIf="!showAddHolder" class="mainTodoListHolderCls">
+
+        <div *ngFor="let val of todoTaskArr;" class="mainTodotHolderCls">
             <!-- <input type="checkbox" value="" /> -->
             <div class="checkBoxLabelHolderCls">
-                <div class="checkboxCls"><input type="checkbox" value="" /></div>
-                <div>Here label text will come</div>
+                <div class="checkboxCls"><input type="checkbox" (change)="addRemoveTask($event)" [value]="val.id" /></div>
+                <div>{{val.name}}</div>
             </div>
             <div class="taskBtnHolderCls">
-                <button class="todoBtnCls">Edit</button>
-                <button class="todoBtnCls">Delete</button>
-            </div>
-        </div>
-        <div class="mainTodotHolderCls">
-            <!-- <input type="checkbox" value="" /> -->
-            <div class="checkBoxLabelHolderCls">
-                <div class="checkboxCls"><input type="checkbox" value="" /></div>
-                <div>Here label text will come</div>
-            </div>
-            <div class="taskBtnHolderCls">
-                <button class="todoBtnCls">Edit</button>
-                <button class="todoBtnCls">Delete</button>
-            </div>
-        </div>
-        <div class="mainTodotHolderCls">
-            <!-- <input type="checkbox" value="" /> -->
-            <div class="checkBoxLabelHolderCls">
-                <div class="checkboxCls"><input type="checkbox" value="" /></div>
-                <div>Here label text will come</div>
-            </div>
-            <div class="taskBtnHolderCls">
-                <button class="todoBtnCls">Edit</button>
-                <button class="todoBtnCls">Delete</button>
-            </div>
-        </div>
-        <div class="mainTodotHolderCls">
-            <!-- <input type="checkbox" value="" /> -->
-            <div class="checkBoxLabelHolderCls">
-                <div class="checkboxCls"><input type="checkbox" value="" /></div>
-                <div>Here label text will come</div>
-            </div>
-            <div class="taskBtnHolderCls">
-                <button class="todoBtnCls">Edit</button>
-                <button class="todoBtnCls">Delete</button>
+                <button (click)="showhideAddHolder(val.id)" class="todoBtnCls">Edit</button>
+                <button (click)="delTodoTask()" class="todoBtnCls">Delete</button>
             </div>
         </div>
 
 
     </div>
 
-</div>
+    <div *ngIf="showAddHolder" class="todoAddHolderCls">
+        <div class="txtBoxHolderCls" style="background-color: Pink;font-weight: bold;font-size: 20px;">
+            <div class="addTodoLableCls">{{addEditLable}}</div>
+        </div>
+        <div class="txtBoxHolderCls" style="background-color: red;">
+            <div class="addTodoLableCls">Name</div>
+            <div><input type="textbox" [(ngModel)]="addtaskArr.name" value="{{addtaskArr.name}}" /></div>
+        </div>
+        <div class="txtBoxHolderCls" style="background-color: yellow;">
+            <div class="addTodoLableCls">Description</div>
+            <div><input type="textbox" [(ngModel)]="addtaskArr.desc" value="{{addtaskArr.desc}}" /></div>
+        </div>
+        <div class="txtBoxHolderCls" style="background-color: green;">
+            <div class="addTodoLableCls">Date</div>
+            <div><input type="textbox" [(ngModel)]="addtaskArr.date" value="{{addtaskArr.date}}" /></div>
+        </div>
+        <div class="txtBoxHolderCls" style="background-color: blue;justify-content: flex-end;">
+            <button (click)="addEditTodoTask()" [disabled]="(addtaskArr.name.length > 0 && addtaskArr.desc.length > 0 && addtaskArr.date.length > 0) ? false : true" class="todoBtnCls">{{addEditLable}}</button>
+            <button (click)="showhideAddHolder()" class="todoBtnCls">Cancel</button>
+        </div>
 
-<div *ngIf="showAddHolder" class="todoAddHolderCls">
-
-    <div class="txtBoxHolderCls" style="background-color: red;">
-        <div class="addTodoLableCls">Name</div>
-        <div><input type="textbox" [(ngModel)]="addtaskArr.name" value="{{addtaskArr.name}}" /></div>
-    </div>
-    <div class="txtBoxHolderCls" style="background-color: yellow;">
-        <div class="addTodoLableCls">Description</div>
-        <div><input type="textbox" value="{{addtaskArr.desc}}" /></div>
-    </div>
-    <div class="txtBoxHolderCls" style="background-color: green;">
-        <div class="addTodoLableCls">Date</div>
-        <div><input type="textbox" value="{{addtaskArr.date}}" /></div>
-    </div>
-    <div class="txtBoxHolderCls" style="background-color: blue;justify-content: flex-end;">
-        <button class="todoBtnCls">Add</button>
-        <button class="todoBtnCls">Cancel</button>
     </div>
 
 </div>
