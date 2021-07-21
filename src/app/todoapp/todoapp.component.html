@@ -2,7 +2,7 @@
 
     <div class="mainBtnHolderCls">
         <button (click)="showhideAddHolder()" class="todoBtnCls">Add</button>
-        <button class="todoBtnCls">Delete</button>
+        <button (click)="multipleDel()" class="todoBtnCls">Delete</button>
     </div>
 
     <div *ngIf="(todoTaskArr.length == 0)">
@@ -19,7 +19,7 @@
             </div>
             <div class="taskBtnHolderCls">
                 <button (click)="showhideAddHolder(val.id)" class="todoBtnCls">Edit</button>
-                <button (click)="delTodoTask()" class="todoBtnCls">Delete</button>
+                <button (click)="delTodoTask(val.id)" class="todoBtnCls">Delete</button>
             </div>
         </div>
 

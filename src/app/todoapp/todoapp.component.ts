@@ -22,6 +22,8 @@ export class TodoappComponent implements OnInit {
 
   addEditLable: string = '';
 
+  selDelArr: any = [];
+
   constructor() { }
 
   ngOnInit(): void {
@@ -69,11 +71,35 @@ export class TodoappComponent implements OnInit {
   }
 
   addRemoveTask(e: any) {
-    console.log(e.target.value);
+
+    let selVal = parseInt(e.target.value);
+
+    if (this.selDelArr.indexOf(selVal) >= 0) {
+      // there
+      this.selDelArr.splice(this.selDelArr.indexOf(selVal), 1);
+    } else {
+      // not there
+      this.selDelArr.push(selVal);
+    }
+    console.log(this.selDelArr);
   }
 
-  delTodoTask() {
-    console.log(this.delToDoArr)
+  delTodoTask(id: number) {
+    console.log(id);
+    for (let i = 0; i < this.todoTaskArr.length; i++) {
+      if (id == this.todoTaskArr[i]['id']) {
+        this.todoTaskArr.splice(i, 1);
+      }
+    }
+  }
+
+  multipleDel() {
+    if (this.selDelArr.length > 0) {
+      for (let i = 0; i < this.selDelArr.length; i++) {
+        this.delTodoTask(this.selDelArr[i]);
+      }
+    }
+    this.selDelArr = [];
   }
 
 }
