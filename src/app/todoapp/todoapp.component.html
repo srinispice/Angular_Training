@@ -3,7 +3,10 @@
     <div class="mainBtnHolderCls">
         <button (click)="showhideAddHolder()" class="todoBtnCls">Add</button>
         <button (click)="multipleDel()" class="todoBtnCls">Delete</button>
+        <input (keyup)="srchTodotask($event)" [(ngModel)]="srchStr" style="height: 20px;" type="text" vlaue="" placeholder="Search" />
     </div>
+
+    {{srchStr}}
 
     <div *ngIf="(todoTaskArr.length == 0)">
         No task added
@@ -33,6 +36,7 @@
         <div class="txtBoxHolderCls" style="background-color: red;">
             <div class="addTodoLableCls">Name</div>
             <div><input type="textbox" [(ngModel)]="addtaskArr.name" value="{{addtaskArr.name}}" /></div>
+            <div *ngIf="showNameErrMsg">Name must be min 3 character</div>
         </div>
         <div class="txtBoxHolderCls" style="background-color: yellow;">
             <div class="addTodoLableCls">Description</div>

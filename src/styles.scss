@@ -18,6 +18,8 @@
 .mainBtnHolderCls {
     display: flex;
     height: 75px;
+    justify-content: start;
+    align-items: center;
 }
 
 .todoBtnCls {

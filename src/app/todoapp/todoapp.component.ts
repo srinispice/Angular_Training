@@ -24,6 +24,10 @@ export class TodoappComponent implements OnInit {
 
   selDelArr: any = [];
 
+  showNameErrMsg: boolean = false;
+
+  srchStr: string = '';
+
   constructor() { }
 
   ngOnInit(): void {
@@ -55,6 +59,13 @@ export class TodoappComponent implements OnInit {
   }
 
   addEditTodoTask() {
+    // this.showNameErrMsg = (this.addtaskArr['name'].length < 4) ? true : false;
+    if (this.addtaskArr['name'].length < 4) {
+      this.showNameErrMsg = true;
+      return;
+    } else {
+      this.showNameErrMsg = false;
+    }
     if (this.addtaskArr['id']) {
       for (let i = 0; i < this.todoTaskArr.length; i++) {
         if (this.addtaskArr['id'] == this.todoTaskArr[i]['id']) {
@@ -63,7 +74,7 @@ export class TodoappComponent implements OnInit {
       }
     } else {
       console.log('add');
-      this.addtaskArr['id'] = ++this.incNum;
+      this.addtaskArr['id'] = this.todoTaskArr.length + 1;
       this.todoTaskArr.push(this.addtaskArr);
     }
     this.showAddHolder = !this.showAddHolder;
@@ -100,6 +111,10 @@ export class TodoappComponent implements OnInit {
       }
     }
     this.selDelArr = [];
+  }
+
+  srchTodotask(e: any) {
+    console.log(e.target.value);
   }
 
 }
